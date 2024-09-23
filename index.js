@@ -44,7 +44,7 @@ app.post("/shloka", async(req, res)=>{
         try{
             const response = await axios.get("https://bhagavad-gita3.p.rapidapi.com/v2/chapters/"+ chapter+"/verses/" + verse + "/", config);
             const data = response.data;
-            res.render("index.ejs", {head: data.text, trail_1: data.translations[1].description, trail_2: data.translations[6].description});
+            res.render("index.ejs", {head: data.text, trail_1: data.translations[1].description, trail_2: data.translations[data.translations.length - 1].description});
         }
         catch(error){
             console.log(error.body);
