@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrimad Bhagavad Gita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="/shloka" method="post">
+    <div id="select">
+        <div>
+            <label for="chapter">select the chapter:</label>
+            <select name="chapter" id="chapter">
+                <% for(let i=1; i<=18; i++) {%>
+                    <option value= <%= i %>> chapter <%= i %></option>
+                <% } %>
+            </select>
+        </div>
+        <div>
+            <label for="verse">select the verse:</label>
+            <input type="number" id="verse" name="verse" min="0" max="100" step="1" value="0">
+        </div>
+        <input type="submit" value="Get the shloka">
+    </div>
+    </form>
+
+    <hr>
+
+    <div class="content">
+        <div class="incontent shloka">
+            <%= head %>
+        </div>
+        <div class="incontent description">
+            <%= trail_1 %>
+        </div>
+        <div class="incontent description">
+            <%= trail_2 %>
+        </div>
+    </div>
+</body>
+</html>
